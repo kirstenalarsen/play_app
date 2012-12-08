@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def graph
   end
+  
+  def about
+  end
 end

@@ -1,4 +1,5 @@
 PlayApp::Application.routes.draw do
+  
   get "static_pages/home"
 
   get "static_pages/help"
@@ -6,6 +7,8 @@ PlayApp::Application.routes.draw do
   get "static_pages/map"
 
   get "static_pages/graph"
+  
+  get "static_pages/about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

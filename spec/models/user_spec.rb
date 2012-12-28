@@ -54,6 +54,7 @@ describe User do
    end
   end
   
+  
   describe "when email format is valid" do
     it "should be valid" do
       addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
@@ -88,6 +89,10 @@ describe User do
    before { @user.password_confirmation = nil }
      it { should_not be_valid }
      end
+  
+  #Tests for user authentication
+     
+  it { should respond_to(:authenticate) }    
      
   describe "return value of authenticate method" do
    before { @user.save }
@@ -109,5 +114,5 @@ describe User do
        before { @user.password = @user.password_confirmation = "a" * 5 }
        it { should be_invalid }
      end
-    
+  
 end

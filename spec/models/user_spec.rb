@@ -97,7 +97,11 @@ describe User do
 
   #Tests for user authentication
      
-  it { should respond_to(:authenticate) }    
+  it { should respond_to(:admin) }
+  it { should respond_to(:authenticate) }  
+  
+  it { should be_valid }
+  it { should_not be_admin }  
      
   describe "return value of authenticate method" do
    before { @user.save }
@@ -119,5 +123,14 @@ describe User do
        before { @user.password = @user.password_confirmation = "a" * 5 }
        it { should be_invalid }
      end
+     
+     describe "with admin attritbute set to 'true' " do
+       before do
+       @user.save
+       @user.toggle!(:admin)
+       end
+       
+    it {should be_admin }
+  end
   
 end

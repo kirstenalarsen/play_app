@@ -1,9 +1,30 @@
-<div class="center hero-unit">
-  <h3>The Open Food Web Trading Platform</h3>
-  <p></p>
-  <%= link_to "I'm Ready to Shop - Find Me a Local Distributor!", 'http://buyfood.herokuapp.com', class: "btn btn-large btn-success" %><br><br>
-  <%= link_to image_tag("OFW Platform pic.png", alt:"OFW Platform"), 'http://www.openfoodweb.org' %><br>
-  <%= link_to "Sign Up", signup_path, class: "btn btn-primary" %>
-  <%= link_to "Tell Me More", '#', class: "btn btn-primary" %>
-  <%= link_to "Browse - What's Available Now?", 'http://buyfood.herokuapp.com', class: "btn btn-primary" %>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4 offset1" >
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+      <section>
+        <%= link_to "I'm Ready to Shop - Find Me a Local Distributor!", 'http://buyfood.herokuapp.com', class: "btn btn-large btn-success" %><br><br>
+        <%= link_to "Browse - What's Available Now?", 'http://buyfood.herokuapp.com', class: "btn btn-large btn-primary" %>
+      </section>  
+    </aside>
+    <div class="span8">
+      <h3>Micropost Feed</h3?
+      <%= render 'shared/feed' %>
+    </div>
   </div>
+<% else %>
+  <div class="center hero-unit">
+    <h3>The Open Food Web Trading Platform</h3>
+    <p></p>
+    <%= link_to "I'm Ready to Shop - Find Me a Local Distributor!", 'http://buyfood.herokuapp.com', class: "btn btn-large btn-success" %><br><br>
+    <%= link_to image_tag("OFW Platform pic.png", alt:"OFW Platform"), 'http://www.openfoodweb.org' %><br>
+    <%= link_to "Sign Up", signup_path, class: "btn btn-primary" %>
+    <%= link_to "Tell Me More", '#', class: "btn btn-primary" %>
+    <%= link_to "Browse - What's Available Now?", 'http://buyfood.herokuapp.com', class: "btn btn-primary" %>
+  </div>
+<% end %>
